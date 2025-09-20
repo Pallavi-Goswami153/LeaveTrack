@@ -9,11 +9,13 @@ import {LeaveHistory} from "./Components/LeaveHistory.jsx";
 import {LeaveForm} from "./Components/LeaveForm.jsx";
 import { AdminDashboard } from "./Components/AdminDashboard.jsx";
 import { LeaveApprovals } from "./Components/LeaveApprovals.jsx";
+import { LoginPage } from "./Components/LoginPage.jsx";
 function App() {
 
   return (
     <>
       <Routes>
+        <Route path="/" element={<LoginPage/>}/>
         <Route path="/dashboard" element={<Dashboard/>}/>
         <Route path="/leaveform" element={<LeaveForm/>}/>
         <Route path="/leavehistory" element={<LeaveHistory/>}/>
