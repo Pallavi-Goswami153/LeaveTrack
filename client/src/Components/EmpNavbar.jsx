@@ -8,7 +8,7 @@ export const EmpNavbar = () => {
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
       <Container fluid>
-        <NavbarBrand>LeaveTrack</NavbarBrand>
+        <NavbarBrand className="fs-2 fw-b">LeaveTrack</NavbarBrand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">

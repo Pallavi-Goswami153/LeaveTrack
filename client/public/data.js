@@ -18,12 +18,22 @@ export const users = [
   }
 ];
 
-// Leave Balance for employees
-export const leaveBalance = {
-  casual: 5,
-  sick: 3,
-  earned: 10
-};
+// individual leave Balance for all the employee
+export const leaveBalance = [
+  {
+    userId: 1,
+    casual: 5,
+    sick: 3,
+    earned: 10
+  },
+  {
+    userId: 2,
+    casual: 10,
+    sick: 5,
+    earned: 15
+  }
+];
+
 
 // Leave History (for employees)
 export let leaveHistory = [

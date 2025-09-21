@@ -13,7 +13,7 @@ export const AdminNavbar = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto">
                     <Nav.Link as={NavLink} to="/admin-dashboard">Admin Dashboard</Nav.Link>
-                    <Nav.Link as={NavLink} to="/leave-approvals">Leave Approvals</Nav.Link>
+                    {/* <Nav.Link as={NavLink} to="/leave-approvals">Leave Approvals</Nav.Link> */}
                 <Nav.Link as={NavLink} to="/" onClick={Logout}>Logout</Nav.Link>
           </Nav>
         </Navbar.Collapse>

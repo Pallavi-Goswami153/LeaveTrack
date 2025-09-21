@@ -1,60 +1,57 @@
-import { leaveBalance, leaveHistory, users } from "../../public/data"
+import { leaveBalance, leaveHistory, users } from "../../public/data";
 
-// leacveservices object with all the required methods
-export const LeaveService={
+// Service to handle leave operations
+export const LeaveService = {
 
-    //login function to check if the user is valid or not
-    login:(email,password)=>{
-        const user=users.find(p=>p.email===email&&p.password===password);
-        return user||null;
-    },
-    
-    //get leave balance method                    
-    getLeaveBalance: ()=>{
-        return leaveBalance;
-    },
+  // Check if the login credentials match any user
+  login(email, password) {
+    const user = users.find(u => u.email === email && u.password === password);
+    return user || null;
+  },
 
-    //Apply for leave method     --employee panel
-    applyLeave:(leave,userId)=>{
-        const newLeave={
-            id:leaveHistory.length+1,
-            ...leave,
-            status:"Pending",
-            appliedBy:userId
-        };
-        leaveHistory.push(newLeave);
-        return newLeave;
-    },
-    //if leaves are pending then approve leave   --admin panel
-    approveLeave:(id)=>{
-        const leave=leaveHistory.find(p=>p.id===id);
-        if(leave)
-        {
-            leave.status="Approved";
-        }
-        return leave;
-    },
-    //works same as approve leaves but sets the status as rejected             --admin panel
-    rejectLeave:(id)=>{
-        const leave=leaveHistory.find(p=>p.id===id);
-        if(leave)
-        {
-            leave.status="Rejected";
-        }
-        return leave;
-    },
+  // Get leave balances for all users
+  getLeaveBalance() {
+    return leaveBalance;
+  },
 
-    // all the leaves stored here that are applied by the employees  -- admin panel
-    getLeaveHistory: () => {
-  return leaveHistory;
-},
+  // Apply for leave (for employees)
+  applyLeave(leave, userId) {
+    const newLeave = {
+      id: leaveHistory.length + 1,
+      ...leave,
+      status: "Pending",
+      appliedBy: userId
+    };
+    leaveHistory.push(newLeave);
+    return newLeave;
+  },
 
-//leave history of a particular employee
+  // Approve a pending leave (admin panel)
+  approveLeave(id) {
+    const leave = leaveHistory.find(l => l.id === id);
+    if (leave) leave.status = "Approved";
+    return leave;
+  },
 
-getLeaveHistoryByUser: (userId) => {
-    return leaveHistory.filter(leave => leave.appliedBy === userId);
-}
+  // Reject a pending leave (admin panel)
+  rejectLeave(id) {
+    const leave = leaveHistory.find(l => l.id === id);
+    if (leave) leave.status = "Rejected";
+    return leave;
+  },
 
+  // Get all leave requests (admin panel)
+  getLeaveHistory() {
+    return leaveHistory;
+  },
 
+  // Get leave history for a specific employee
+  getLeaveHistoryByUser(userId) {
+    return leaveHistory.filter(l => l.appliedBy === userId);
+  },
 
+  // Get user details by ID
+  getUserById(id) {
+    return users.find(u => u.id === id);
+  }
 };

@@ -8,12 +8,12 @@ import { Dashboard } from './Components/Dashboard.jsx';
 import {LeaveHistory} from "./Components/LeaveHistory.jsx";
 import {LeaveForm} from "./Components/LeaveForm.jsx";
 import { AdminDashboard } from "./Components/AdminDashboard.jsx";
-import { LeaveApprovals } from "./Components/LeaveApprovals.jsx";
+// import { LeaveApprovals } from "./Components/LeaveApprovals.jsx";
 import { LoginPage } from "./Components/LoginPage.jsx";
 import { DashboardScreen } from "./Pages/DashboardScreen.jsx";
 import { ApplyLeaveScreen } from "./Pages/ApplyLeaveScreen.jsx";
 import { LeaveHistoryScreen } from "./Pages/LeaveHistoryScreen.jsx";
-import { AdminLeaveApprovals } from "./Pages/AdminLeaveApprovals.jsx";
+// import { AdminLeaveApprovals } from "./Pages/AdminLeaveApprovals.jsx";
 import { AdminDashboardScreen } from "./Pages/adminDashboardScreen.jsx";
 function App() {
 
@@ -25,7 +25,7 @@ function App() {
         <Route path="/leaveform" element={<ApplyLeaveScreen/>}/>
         <Route path="/leavehistory" element={<LeaveHistoryScreen/>}/>
         <Route path="/admin-dashboard" element={<AdminDashboardScreen/>}/>
-        <Route path="/leave-approvals" element={<AdminLeaveApprovals/>}/>
+        {/* <Route path="/leave-approvals" element={<AdminLeaveApprovals/>}/> */}
       </Routes>
     </>
   )
