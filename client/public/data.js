@@ -5,7 +5,7 @@ export const users = [
   {
     id: 1,
     name: "Pallavi Goswami",
-    email: "employee@example.com",
+    email: "pallavigoswami153@gmail.com",
     password: "12345", // plain text for mock login
     role: "employee"
   },

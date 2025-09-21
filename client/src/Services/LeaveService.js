@@ -9,12 +9,12 @@ export const LeaveService={
         return user||null;
     },
     
-    //get leave balance
+    //get leave balance method                    
     getLeaveBalance: ()=>{
         return leaveBalance;
     },
 
-    //Apply for leave
+    //Apply for leave method     --employee panel
     applyLeave:(leave,userId)=>{
         const newLeave={
             id:leaveHistory.length+1,
@@ -34,7 +34,7 @@ export const LeaveService={
         }
         return leave;
     },
-    //works same as approve leaves but sets the status as rejected
+    //works same as approve leaves but sets the status as rejected             --admin panel
     rejectLeave:(id)=>{
         const leave=leaveHistory.find(p=>p.id===id);
         if(leave)
@@ -42,6 +42,19 @@ export const LeaveService={
             leave.status="Rejected";
         }
         return leave;
-    }
+    },
+
+    // all the leaves stored here that are applied by the employees  -- admin panel
+    getLeaveHistory: () => {
+  return leaveHistory;
+},
+
+//leave history of a particular employee
+
+getLeaveHistoryByUser: (userId) => {
+    return leaveHistory.filter(leave => leave.appliedBy === userId);
+}
+
+
 
 };

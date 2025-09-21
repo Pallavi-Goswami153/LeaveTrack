@@ -1,6 +1,8 @@
 import { Container, Row, Col, Button, FormGroup, Form } from "react-bootstrap";
 import { useFormik } from "formik";
+import { LeaveService } from "../Services/LeaveService";
 import * as yup from "yup";
+import { useNavigate } from "react-router-dom";
 
 //Validation using yup
 const validateSchema = yup.object().shape({
@@ -16,29 +18,50 @@ const validateSchema = yup.object().shape({
 });
 
 export const LoginPage = () => {
-  const formik = useFormik({
-    initialValues: {
-      email: "",
-      password: "",
-    },
-    onSubmit: (values) => {
-      console.log("Form Submitted ✅", values);
-    },
-    validationSchema: validateSchema,
-  });
+    const navigate=useNavigate();
 
+    
+
+  const formik = useFormik({
+  initialValues: 
+  { 
+    email: "",
+    password: "" 
+},
+ 
+ onSubmit: (values) => {
+  const user = LeaveService.login(values.email, values.password);
+
+  if (user) {
+    // all the information of user is stored into the local storage
+    localStorage.setItem("currentUser", JSON.stringify({
+      id: user.id,
+      email: user.email,
+      role: user.role
+    }));
+
+    // redirect based on the admin pag
+    if (user.role === "admin") {
+      navigate("/admin-dashboard"); 
+    } else {
+      navigate("/dashboard"); // redirect on the employee page 
+    }
+  } 
+},
+   validationSchema: validateSchema,
+});
   return (
     <Container>
       <Row className="d-flex justify-content-center">
         <Col md={4}>
           <h3 className="text-center my-3">Login</h3>
           <Form onSubmit={formik.handleSubmit}>
-            {/* Email Field */}
+            {/* email field for credentials  */}
             <FormGroup className="mb-3">
               <Form.Label>Email</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Enter your email"
+                placeholder="Enter email"
                 name="email"
                 {...formik.getFieldProps("email")}
                 isInvalid={formik.touched.email && !!formik.errors.email}
@@ -50,12 +73,12 @@ export const LoginPage = () => {
               )}
             </FormGroup>
 
-            {/* Password Field */}
+            {/* password field for credentials */}
             <FormGroup className="mb-3">
               <Form.Label>Password</Form.Label>
               <Form.Control
                 type="password"
-                placeholder="Enter your password"
+                placeholder="Enter password"
                 name="password"
                 {...formik.getFieldProps("password")}
                 isInvalid={formik.touched.password && !!formik.errors.password}
@@ -66,11 +89,7 @@ export const LoginPage = () => {
                 </div>
               )}
             </FormGroup>
-
-            {/* Submit Button */}
-            <Button type="submit" className="w-100">
-              Login
-            </Button>
+            <Button type="submit" className="w-100">Login</Button>
           </Form>
         </Col>
       </Row>

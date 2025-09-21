@@ -10,17 +10,22 @@ import {LeaveForm} from "./Components/LeaveForm.jsx";
 import { AdminDashboard } from "./Components/AdminDashboard.jsx";
 import { LeaveApprovals } from "./Components/LeaveApprovals.jsx";
 import { LoginPage } from "./Components/LoginPage.jsx";
+import { DashboardScreen } from "./Pages/DashboardScreen.jsx";
+import { ApplyLeaveScreen } from "./Pages/ApplyLeaveScreen.jsx";
+import { LeaveHistoryScreen } from "./Pages/LeaveHistoryScreen.jsx";
+import { AdminLeaveApprovals } from "./Pages/AdminLeaveApprovals.jsx";
+import { AdminDashboardScreen } from "./Pages/adminDashboardScreen.jsx";
 function App() {
 
   return (
     <>
       <Routes>
         <Route path="/" element={<LoginPage/>}/>
-        <Route path="/dashboard" element={<Dashboard/>}/>
-        <Route path="/leaveform" element={<LeaveForm/>}/>
-        <Route path="/leavehistory" element={<LeaveHistory/>}/>
-        <Route path="/admin-dashboard" element={<LeaveHistory/>}/>
-        <Route path="/leave-approvals" element={<LeaveApprovals/>}/>
+        <Route path="/dashboard" element={<DashboardScreen/>}/>
+        <Route path="/leaveform" element={<ApplyLeaveScreen/>}/>
+        <Route path="/leavehistory" element={<LeaveHistoryScreen/>}/>
+        <Route path="/admin-dashboard" element={<AdminDashboardScreen/>}/>
+        <Route path="/leave-approvals" element={<AdminLeaveApprovals/>}/>
       </Routes>
     </>
   )
