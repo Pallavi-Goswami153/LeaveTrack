@@ -1,11 +1,10 @@
 import { NavLink } from "react-router-dom";
-import { Navbar, Nav, Container, NavbarBrand } from "react-bootstrap";
+import { Navbar, Nav,Container,NavbarBrand } from "react-bootstrap";
 import { Logout } from "./Logout";
 
-export const AdminNavbar = () => {
-//   const user = JSON.parse(localStorage.getItem("currentUser") || "null");
-
-  return (
+export const AdminNavbar=()=>{
+  return(
+    <>
     <Navbar bg="dark" variant="dark" expand="lg">
       <Container fluid>
         <NavbarBrand>LeaveTrack</NavbarBrand>
@@ -19,5 +18,6 @@ export const AdminNavbar = () => {
         </Navbar.Collapse>
       </Container>
     </Navbar>
+    </>
   );
 };

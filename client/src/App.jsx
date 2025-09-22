@@ -15,6 +15,7 @@ import { ApplyLeaveScreen } from "./Pages/ApplyLeaveScreen.jsx";
 import { LeaveHistoryScreen } from "./Pages/LeaveHistoryScreen.jsx";
 // import { AdminLeaveApprovals } from "./Pages/AdminLeaveApprovals.jsx";
 import { AdminDashboardScreen } from "./Pages/adminDashboardScreen.jsx";
+import { ProviderLeave } from "./Components/ContextLevve.jsx";
 function App() {
 
   return (
@@ -27,6 +28,7 @@ function App() {
         <Route path="/admin-dashboard" element={<AdminDashboardScreen/>}/>
         {/* <Route path="/leave-approvals" element={<AdminLeaveApprovals/>}/> */}
       </Routes>
+     
     </>
   )
 }
